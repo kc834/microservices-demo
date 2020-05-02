@@ -1,10 +1,10 @@
 global:
     # How frequently to scrape targets by default.
-    scrape_interval: 1m
+    scrape_interval: 100ms
     # How long until a scrape request times out.
-    scrape_timeout: 10s
+    scrape_timeout: 1s
     # How frequently to evaluate rules.
-    evaluation_interval: 1m
+    evaluation_interval: 100ms
 
 rule_files:
     - "/etc/prometheus/alert.rules"
@@ -17,7 +17,7 @@ alerting:
 
 scrape_configs:
     - job_name: "frontend"
-      scrape_interval: 5s
+      scrape_interval: 100ms
       metrics_path: 'metrics'
       static_configs:
         - targets: ['edge-router']
@@ -25,43 +25,43 @@ scrape_configs:
     # The job name assigned to scraped metrics by default.
     - job_name: "catalogue"
       # How frequently to scrape targets from this job.
-      scrape_interval: 5s
+      scrape_interval: 100ms
       # List of labeled statically configured targets for this job.
       static_configs:
         # The targets specified by the static config.
         - targets: ['catalogue']
 
     - job_name: "payment"
-      scrape_interval: 5s
+      scrape_interval: 100ms
       static_configs:
         - targets: ['payment']
 
     - job_name: "user"
-      scrape_interval: 5s
+      scrape_interval: 100ms
       static_configs:
         - targets: ['user']
 
     - job_name: "orders"
-      scrape_interval: 5s
+      scrape_interval: 100ms
       # The HTTP resource path on which to fetch metrics from targets.
       metrics_path: 'metrics'
       static_configs:
         - targets: ['orders']
 
     - job_name: "cart"
-      scrape_interval: 5s
+      scrape_interval: 100ms
       metrics_path: 'metrics'
       static_configs:
         - targets: ['carts']
 
     - job_name: "shipping"
-      scrape_interval: 5s
+      scrape_interval: 100ms
       metrics_path: 'metrics'
       static_configs:
         - targets: ['shipping']
 
     - job_name: "queue-master"
-      scrape_interval: 5s
+      scrape_interval: 100ms
       metrics_path: 'prometheus'
       static_configs:
         - targets: ['queue-master']

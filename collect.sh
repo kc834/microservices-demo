@@ -1,9 +1,9 @@
 #!/bin/bash
 
 start=`date +%s`
-for r in $(seq 100 100 1000)
+for r in $(seq 1000 1000 10000)
 do
-	for c in {1..10}
+	for c in $(seq 10 10 100)
 	do
 		docker run --net=host weaveworksdemos/load-test -h localhost -r $r -c $c
 	done
